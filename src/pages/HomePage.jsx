@@ -3,7 +3,7 @@ import { Header } from '../componets/Header';
 import './HomePage.css'
 import CheckmarkIcon from '../assets/images/icons/checkmark.png';
 import { useEffect,useState } from 'react';
-
+import {formatMoney} from '../utils/money.js'
 export function HomePage({cart}) {
     // fetch('http://localhost:3000/api/products')
     //      .then((responce)=>{
@@ -49,7 +49,7 @@ export function HomePage({cart}) {
                                 </div>
 
                                 <div className="product-price">
-                                    ${(product.priceCents / 100).toFixed(2)}
+                                   {formatMoney(product.priceCents)}
                                 </div>
 
                                 <div className="product-quantity-container">
