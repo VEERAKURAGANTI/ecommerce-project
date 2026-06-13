@@ -1,8 +1,7 @@
-
-import './CheckoutPage.css'
+import'./CheckoutPage.css'
 import { CheckoutHeader } from '../../componets/CheckoutHeader';
 
-export function CheckoutPage() {
+export function CheckoutPage(){
     return (
         <>
         <title>Checkout</title>
