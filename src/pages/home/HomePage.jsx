@@ -14,13 +14,13 @@ export function HomePage({cart}) {
     //             console.log(data)
     //         })
     const[products,setProducts] =useState([]);
-    
-    
+
     useEffect(() => {
-        axios.get('/api/products')
-            .then((responce) => {
-                setProducts(responce.data)
-            })
+        const getHomeData = async ()=>{
+        const response =await axios.get('/api/products');
+        setProducts(response.data);
+      };
+      getHomeData();
     },[]);
     
     return (
