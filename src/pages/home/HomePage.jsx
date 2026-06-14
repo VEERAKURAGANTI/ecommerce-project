@@ -1,0 +1,37 @@
+import axios from 'axios';
+import { Header } from '../../componets/Header.jsx';
+import './HomePage.css'
+
+
+import { useEffect,useState } from 'react';
+
+import { ProductsGrid} from './ProductsGrid.jsx';
+export function HomePage({cart}) {
+    // fetch('http://localhost:3000/api/products')
+    //      .then((responce)=>{
+    //       return  responce.json();
+    //      }).then((data)=>{
+    //             console.log(data)
+    //         })
+    const[products,setProducts] =useState([]);
+    
+    
+    useEffect(() => {
+        axios.get('/api/products')
+            .then((responce) => {
+                setProducts(responce.data)
+            })
+    },[]);
+    
+    return (
+        <>
+            <title>Ecommerce Project</title>
+            <link rel="icon" type='image/svg+xml' href="home-favicon.png" />
+            <Header cart={cart} />
+            <div className="home-page">
+               <ProductsGrid products={products}/>
+            </div>
+        </>
+    );
+}
+
